@@ -65,6 +65,7 @@ for line in txt:
 
     if tel is not None:
         print(tel.group(0), end="|")
+        
     else:
         print("Invalid tel", end="|")
     assert tel != " "
@@ -75,4 +76,6 @@ for line in txt:
         print("Invalid mail")
     print()
     assert mail != " "
+
+
     
