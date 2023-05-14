@@ -11,7 +11,7 @@ jobs:
           python-version: '3.10'
       - run: |
           python3 regexp.py
-      - run: if cmp -s text.txt text_ep.txt; 
+      - run: if cmp -s text.txt text_test.txt; 
           then echo "Test passed";
           else exit 1;
           fi
