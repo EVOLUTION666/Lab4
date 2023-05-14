@@ -16,3 +16,18 @@ jobs:
           else exit 1;
           fi
         shell: sh
+        
+  code_analise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.organization=andrey
+            -Dsonar.projectKey=EVOLUTION666_Lab4
+            -Dsonar.sources=.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
