@@ -29,7 +29,7 @@ def error_symbols(arg):
 for line in txt:
     line = line.strip()
     print(line)
-    line = line.split("|")
+    line = line.split(":")
     has_empty_elements = False
     for elem in line:
         if not elem:
@@ -52,26 +52,26 @@ for line in txt:
     mail = re.search(mail_pattern, mail)
 
     if name is not None:
-        print(name.group(1), end="|")
+        print(name.group(0), end=":")
     else:
-        print("Invalid name", end="|")
+        print("Invalid name", end=":")
     assert name != " "
 
     if age is not None:
-        print(age.group(1), end="|")
+        print(age.group(0), end=":")
     else:
-        print("Invalid age", end="|")
+        print("Invalid age", end=":")
     assert age != " "
 
     if tel is not None:
-        print(tel.group(1), end="|")
+        print(tel.group(0), end=":")
         
     else:
-        print("Invalid tel", end="|")
+        print("Invalid tel", end=":")
     assert tel != " "
 
     if mail is not None:
-        print(mail.group(1))
+        print(mail.group(0))
     else:
         print("Invalid mail")
     print()
