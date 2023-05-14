@@ -13,7 +13,7 @@ if not txt:
 
 assert txt != ""
 
-name_pattern = re.compile(r"^([А-Я][а-б]*){2,3}")
+name_pattern = re.compile(r"^([А-Я][а-я]*){2,3}")
 age_pattern = re.compile(r"\d+")
 tel_pattern = re.compile(r"\+{0,1}\d{11}")
 mail_pattern = re.compile(r"[\w!#$%&'*+-/=?^_`{|]+[^.@]@(\w+.)+\w+")
@@ -52,26 +52,26 @@ for line in txt:
     mail = re.search(mail_pattern, mail)
 
     if name is not None:
-        print(name.group(0), end="|")
+        print(name.group(1), end="|")
     else:
         print("Invalid name", end="|")
     assert name != " "
 
     if age is not None:
-        print(age.group(0), end="|")
+        print(age.group(1), end="|")
     else:
         print("Invalid age", end="|")
     assert age != " "
 
     if tel is not None:
-        print(tel.group(0), end="|")
+        print(tel.group(1), end="|")
         
     else:
         print("Invalid tel", end="|")
     assert tel != " "
 
     if mail is not None:
-        print(mail.group(0))
+        print(mail.group(1))
     else:
         print("Invalid mail")
     print()
