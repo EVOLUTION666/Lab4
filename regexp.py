@@ -52,22 +52,22 @@ with open("text.txt", mode="w", encoding="utf-8") as file:
         mail = re.search(mail_pattern, mail)
 
         if name is not None:
-            file.write(name.group(0) + "|")
+            file.write(name.group(0) + "|-")
         else:
-            file.write("Invalid name" + "|")
+            file.write("Invalid name" + "|-")
         assert name != " "
 
         if age is not None:
-            file.write(age.group(0) + "|")
+            file.write(age.group(0) + "|-")
         else:
-            file.write("Invalid age" + "|")
+            file.write("Invalid age" + "|-")
         assert age != " "
 
         if tel is not None:
-            file.write(tel.group(0) + "|")
+            file.write(tel.group(0) + "|-")
             
         else:
-            file.write("Invalid tel" + "|")
+            file.write("Invalid tel" + "|-")
         assert tel != " "
 
         if mail is not None:
