@@ -13,7 +13,7 @@ if not txt:
 
 assert txt != ""
 
-name_pattern = re.compile(r"^([А-Я][а-я]*){2,3}")
+name_pattern = re.compile(r"^([А-Я][а-б]*){2,3}")
 age_pattern = re.compile(r"\d+")
 tel_pattern = re.compile(r"\+{0,1}\d{11}")
 mail_pattern = re.compile(r"[\w!#$%&'*+-/=?^_`{|]+[^.@]@(\w+.)+\w+")
