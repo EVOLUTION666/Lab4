@@ -13,19 +13,20 @@ if not txt:
 
 assert txt != ""
 
-name_pattern = re.compile(r"^([А-Я][а-я]*){2,3}")
-age_pattern = re.compile(r"\d+")
-tel_pattern = re.compile(r"\+{0,1}\d{11}")
-mail_pattern = re.compile(r"[\w!#$%&'*+-/=?^_`{|]+[^.@]@(\w+.)+\w+")
-
-
 def error_symbols(arg):
     arg = re.sub(r"\.+", ".", arg)
     arg = re.sub(r"@+", "@", arg)
     arg = re.sub(r" ", "", arg)
     return arg
 
-with open("text.txt", mode="w", encoding="utf-8") as file:
+def regex_matcher(txt):
+
+    name_pattern = re.compile(r"^([А-Я][а-я]*){2,3}")
+    age_pattern = re.compile(r"\d+")
+    tel_pattern = re.compile(r"\+{0,1}\d{11}")
+    mail_pattern = re.compile(r"[\w!#$%&'*+-/=?^_`{|]+[^.@]@(\w+.)+\w+")
+    temp = ""
+
     for line in txt:
         line = line.strip()
         print(line)
@@ -50,28 +51,43 @@ with open("text.txt", mode="w", encoding="utf-8") as file:
         age = re.search(age_pattern, age)
         tel = re.search(tel_pattern, tel)
         mail = re.search(mail_pattern, mail)
+        
 
         if name is not None:
-            file.write(name.group(0) + "|")
+            # file.write(name.group(0) + "|")
+            temp += name.group(0) + "|"
         else:
-            file.write("Invalid name" + "|")
+            # file.write("Invalid name" + "|")
+            temp += "Invalid name" + "|"
         assert name != " "
 
         if age is not None:
-            file.write(age.group(0) + "|")
+            # file.write(age.group(0) + "|")
+            temp += age.group(0) + "|"
         else:
-            file.write("Invalid age" + "|")
+            # file.write("Invalid age" + "|")
+            temp += "Invalid age" + "|"
         assert age != " "
 
         if tel is not None:
-            file.write(tel.group(0) + "|")
+            # file.write(tel.group(0) + "|")
+            temp += tel.group(0) + "|"
             
         else:
-            file.write("Invalid tel" + "|")
+            # file.write("Invalid tel" + "|")
+            temp += "Invalid tel" + "|"
         assert tel != " "
 
         if mail is not None:
-            file.write(mail.group(0) + "\n")
+            # file.write(mail.group(0) + "\n")
+            temp += mail.group(0) + "\n"
         else:
-            file.write("Invalid mail" + "\n")
+            # file.write("Invalid mail" + "\n")
+            temp += "Invalid mail" + "\n"
         assert mail != " "
+    return temp
+
+with open("text.txt", mode="w", encoding="utf-8") as file:
+    new_text = regex_matcher(txt)
+    print(new_text)
+    file.write(new_text)
