@@ -10,7 +10,7 @@ jobs:
         with:
           python-version: '3.10'
       - run: |
-          python3 pr4.py
+          python3 regexp.py
       - run: if cmp -s text.txt text_ep.txt; 
           then echo "Test passed";
           else exit 1;
