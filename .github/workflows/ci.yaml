@@ -18,7 +18,7 @@ jobs:
           coverage run -m pytest pr4_pytest.py
       - run: |
           python3 regexp.py
-      - run: if cmp -s res_pr4_test.txt res_pr4_test_et.txt; 
+      - run: if cmp -s text_test.txt text.txt; 
           then echo "Test passed";
           else exit 1;
           fi
